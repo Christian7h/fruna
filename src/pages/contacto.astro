@@ -1,0 +1,186 @@
+---
+import Clock from "../components/Clock.astro";
+import Phone from "../components/Phone.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Contacto - Fruna">
+  <div class="container mx-auto p-6" id="page">
+    <div class="site-content" id="content">
+      <section class="py-8 text-center">
+        <h2 class="text-5xl font-bold text-red-600">Contáctanos</h2>
+        <p class="mt-2">¡Queremos Saber de ti!</p>
+      </section>
+
+      <section class="py-4 text-center">
+        <p class="mt-2">
+          Gracias por visitar nuestra página web. Contáctanos a través de los
+          siguientes medios.
+        </p>
+      </section>
+
+      <section class="py-8">
+        <div class="contact_form max-w-md mx-auto bg-gray-100 rounded-lg p-6">
+          <h1 class="text-3xl font-bold text-red-600 mb-4 text-center">
+            Formulario de contacto
+          </h1>
+          <h3 class="text-gray-700 mb-6">
+            Escríbenos y en breve los pondremos en contacto contigo
+          </h3>
+
+          <form action="submeter-formulario.php" method="post">
+            <div class="mb-4">
+              <label
+                for="nombre"
+                class="block text-sm font-medium text-gray-700"
+                >Nombre
+                <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                name="introducir_nombre"
+                id="nombre"
+                required
+                placeholder="Escribe tu nombre"
+                class="mt-1 block w-full border border-red-600 rounded-md p-2 focus:ring focus:ring-red-500"
+              />
+            </div>
+
+            <div class="mb-4">
+              <label for="email" class="block text-sm font-medium text-gray-700"
+                >Email
+                <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="email"
+                name="introducir_email"
+                id="email"
+                required
+                placeholder="Escribe tu Email"
+                class="mt-1 block w-full border border-red-600 rounded-md p-2 focus:ring focus:ring-red-500"
+              />
+            </div>
+
+            <div class="mb-4">
+              <label
+                for="telefono"
+                class="block text-sm font-medium text-gray-700">Teléfono</label
+              >
+              <input
+                type="tel"
+                name="introducir_telefono"
+                id="telefono"
+                placeholder="Escribe tu teléfono"
+                class="mt-1 block w-full border border-red-600 rounded-md p-2 focus:ring focus:ring-red-500"
+              />
+            </div>
+
+            <div class="mb-4">
+              <label
+                for="asunto"
+                class="block text-sm font-medium text-gray-700"
+                >Asunto
+                <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                name="introducir_asunto"
+                id="assunto"
+                required
+                placeholder="Escribe un asunto"
+                class="mt-1 block w-full border border-red-600 rounded-md p-2 focus:ring focus:ring-red-500"
+              />
+            </div>
+
+            <div class="mb-4">
+              <label
+                for="mensaje"
+                class="block text-sm font-medium text-gray-700"
+                >Mensaje
+                <span class="text-red-500">*</span>
+              </label>
+              <textarea
+                name="introducir_mensaje"
+                class="mt-1 block w-full border border-red-600 rounded-md p-2 focus:ring focus:ring-red-500"
+                id="mensaje"
+                required
+                placeholder="Deja aquí tu comentario..."
+                rows="4"></textarea>
+            </div>
+
+            <button
+              type="submit"   
+              name="enviar_formulario"
+              id="enviar"
+              class="w-full bg-red-600 text-white py-2 rounded-md hover:bg-red-700 transition"
+            >
+              Enviar
+            </button>
+
+            <p class="mt-2 text-sm text-gray-600">
+              <span class="text-red-500">*</span> Los campos son obligatorios.
+            </p>
+          </form>
+        </div>
+      </section>
+
+      <section class="py-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+          <div>
+            <h2 class="text-xl font-bold">Horarios Venta de Helados</h2>
+            <ul class="mt-2">
+              <li class="flex justify-center items-center">
+                <Clock />
+                <span>Lun a Vie, AM 08:00 a 12:00</span>
+              </li>
+              <li class="flex justify-center items-center">
+                <Clock />
+                <span>Lun a Vie, PM 15:00 a 18:00</span>
+              </li>
+              <li class="flex justify-center items-center">
+                <Clock />
+                <span>Sábado, 08:30 a 12:00</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 class="text-xl font-bold">Venta de Helados</h2>
+            <ul class="mt-2">
+              <li class="flex justify-center items-center">
+                <Phone />
+                <span>+56 2 3245 6745</span>
+              </li>
+              <li class="flex justify-center items-center">
+                <Phone />
+                <span>+56 2 3245 6748</span>
+              </li>
+              <li class="flex justify-center items-center">
+                <Phone />
+                <span>+56 2 3245 6750</span>
+              </li>
+              <li class="flex justify-center items-center">
+                <Phone />
+                <span>+56 2 3245 6782</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 class="text-xl font-bold">Venta de Confites</h2>
+            <ul class="mt-2">
+              <li class="flex justify-center items-center">
+                <Phone />
+                <span>+56 2 3245 6743</span>
+              </li>
+              <li class="flex justify-center items-center">
+                <Phone />
+                <span>+56 2 3245 6749</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</Layout>
