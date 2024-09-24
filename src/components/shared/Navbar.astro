@@ -1,0 +1,91 @@
+<nav
+    class="p-5 shadow md:flex md:items-center md:justify-between w-full bg-red-500"
+>
+    <div class="flex justify-between items-center text-white">
+        <a href="/" class="text-3xl cursor-pointer">
+            <img class="h-20 inline" src="/logo-fruna-la-dulceria-de-chile-2.png" alt="Logo Fruna"/>
+             Alpha</a
+        >
+        <span class="text-3xl cursor-pointer mx-2 md:hidden block"
+            ><ion-icon name="menu"></ion-icon></span
+        >
+    </div>
+
+    <ul
+        class="bg-red-500 text-white md:flex md:items-center md:z-auto md:static absolute w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500"
+    >
+        <li class="mx-4 my-6 md:my-0">
+            <a
+                href="/"
+                class="nav-link text-xl hover:text-orange-300 duration-500"
+                >Inicio</a
+            >
+        </li>
+        <li class="mx-4 my-6 md:my-0">
+            <a
+                href="/productos"
+                class="nav-link text-xl hover:text-orange-300 duration-500">Productos</a
+            >
+        </li>
+        <li class="mx-4 my-6 md:my-0">
+            <a href="/dulcerias" class="nav-link text-xl hover:text-orange-300 duration-500"
+                >Dulcerias</a
+            >
+        </li>
+        <li class="mx-4 my-6 md:my-0">
+            <a
+                href="/contacto"
+                class="nav-link text-xl hover:text-orange-300 duration-500">Contacto</a
+            >
+        </li>
+    </ul>
+</nav>
+<style>
+  /* Apply underline fill effect */
+  .nav-link {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .nav-link::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 0%;
+    content: '';
+    color: transparent;
+    background: #ffffff;
+    height: 2px;
+    transition: width 0.4s, opacity 0.4s;
+  }
+  
+  .nav-link:hover::after {
+    width: 100%;
+    opacity: 1;
+  }
+  
+  .nav-link:hover {
+    color: #ceff1a;
+  }
+</style>
+
+<script>
+  document.addEventListener("astro:page-load", function () {
+      let icon = document.querySelector("ion-icon")!;
+
+      icon.addEventListener("click", function () {
+          if (icon.getAttribute("name") === "menu") {
+              icon.setAttribute("name", "close");
+              document.querySelector("ul")!.classList.add("top-[100px]");
+              document.querySelector("ul")!.classList.add("opacity-100");
+              document.querySelector("ul")!.classList.add("z-10");
+          } else {
+              icon.setAttribute("name", "menu");
+              document.querySelector("ul")!.classList.remove("top-[80px]");
+              document.querySelector("ul")!.classList.remove("opacity-100");
+          }
+      });
+  });
+</script>
