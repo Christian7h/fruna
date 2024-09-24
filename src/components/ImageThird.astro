@@ -52,15 +52,18 @@
   document.addEventListener("astro:page-load", () => {
     const image = document.getElementById("animated-image");
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          image.classList.add("bounce-in", "opacity-100", "scale-100");
-          image.classList.remove("opacity-0", "scale-90");
-        }
+    // Verificamos si el elemento existe antes de continuar
+    if (image) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            image.classList.add("bounce-in", "opacity-100", "scale-100");
+            image.classList.remove("opacity-0", "scale-90");
+          }
+        });
       });
-    });
 
-    observer.observe(image);
+      observer.observe(image);
+    }
   });
 </script>
