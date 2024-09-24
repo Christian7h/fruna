@@ -1,93 +1,51 @@
 ---
 //src/pages/index.astro
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/effect-fade';
-import 'swiper/css/autoplay'
+
 import Layout from '../layouts/Layout.astro';
 import Favoritos from '../components/Favoritos.astro';
 import Ground from '../components/icon/Ground.astro';
+import Slider from '../components/Slider.astro';
+import SliderTwo from '../components/SliderTwo.astro';
+import ImageThird from '../components/ImageThird.astro';
 ---
 
 <Layout title="Fruna - De la tierra a la Luna, no hay como tú y Fruna">
-  <main class="container mx-auto px-4 py-10">
+    <Slider/>
+    <SliderTwo/>
+    <ImageThird/>
+
     <Favoritos/>
-  </main>
-
-  <!-- Main Section with Background and SVG -->
-  <section class="relative bg-cover bg-center py-20" style="background-image: url('background1920x1080x.jpg');">
-    <!-- Top SVG Shape -->
-    <div class="absolute inset-x-0 top-0">
-      <Ground/>
-    </div>
-
-    <!-- Text and Button (Left) -->
-    <div class="container mx-auto flex flex-col md:flex-row justify-between items-center relative z-10">
-      <div class="text-white md:w-1/2 text-left space-y-6">
-        <h2 class="text-4xl md:text-5xl font-bold leading-tight">Es Temporada<br>de Helados</h2>
-        <a href="" class="inline-block bg-pink-600 hover:bg-pink-700 text-white py-3 px-6 rounded-lg text-lg font-semibold">
-          Míralos aquí
-        </a>
-      </div>
-
-      <!-- Right Section: Swiper Carousel -->
-      <div class="md:w-1/2">
-        <!-- Slider main container -->
-        <div class="swiper">
-          <!-- Additional required wrapper -->
-          <div class="swiper-wrapper">
-            <!-- Slides -->
-            <div class="swiper-slide" data-swiper-autoplay="2000">
-              <img src="https://www.fruna.cl/wp-content/uploads/2020/10/helado-3.png" alt="helado-3" class="w-full">
-            </div>
-            <div class="swiper-slide" data-swiper-autoplay="3000">
-              <img src="https://www.fruna.cl/wp-content/uploads/2020/10/helados1.png" alt="helados1" class="w-full">
-            </div>
-            <div class="swiper-slide" data-swiper-autoplay="4000">
-              <img src="https://www.fruna.cl/wp-content/uploads/2021/02/Mesa-de-trabajo-1-copia-26.png" alt="helado-2" class="w-full">
-            </div>
-          </div>
-            <!-- If we need pagination -->
-            <div class="swiper-pagination"></div>
-
-            <!-- If we need navigation buttons -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-        </div>
-      </div>
-    </div>
-  </section>
 </Layout>
+
 <style>
-.swiper {
-	width: 600px;
-	height: auto;
-  }</style>
-<script>
+  @keyframes bounceIn {
+    0%, 20%, 40%, 60%, 80%, 100% {
+      animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+    0% {
+      opacity: 0;
+      transform: scale3d(0.3, 0.3, 0.3);
+    }
+    20% {
+      transform: scale3d(1.1, 1.1, 1.1);
+    }
+    40% {
+      transform: scale3d(0.9, 0.9, 0.9);
+    }
+    60% {
+      opacity: 1;
+      transform: scale3d(1.03, 1.03, 1.03);
+    }
+    80% {
+      transform: scale3d(0.97, 0.97, 0.97);
+    }
+    100% {
+      opacity: 1;
+      transform: scale3d(1, 1, 1);
+    }
+  }
 
-import Swiper from 'swiper';
-  import { Pagination, Navigation, EffectFade,Autoplay } from 'swiper/modules';
-
-  document.addEventListener('astro:page-load', () => {
-    const swiper = new Swiper('.swiper', {
-      autoplay: {
-        delay: 2000, // Global autoplay delay (2 seconds)
-      },
-      effect: 'fade', // Efecto de desvanecimiento
-      fadeEffect: {
-        crossFade: true, // Suaviza la transición entre diapositivas
-      },
-      loop: true, // Activa el bucle infinito
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true, // Hace que los puntos de paginación sean clicables
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      modules: [Pagination, Navigation, EffectFade,Autoplay], // Módulos de Swiper
-    });
-  });
-</script>
+  .bounce-in {
+    animation: bounceIn 1s ease forwards;
+  }
+</style>

@@ -21,27 +21,32 @@ const favList = [
   { src: "fav18.png", label: "Producto 18" },
 ];
 ---
+
 <!-- Sección de Productos -->
-<section id="productos" class="py-16">
-  <h2 class="text-3xl font-bold text-center mb-8">Nuestros Productos</h2>
+<main class="container mx-auto px-4 py-10">
+  <section id="productos" class="py-16">
+    <h2 class="text-3xl font-bold text-center mb-8">Nuestros Productos</h2>
 
-  <!-- Mostrar productos listados-->
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-    {favList.map((img) => (
-      <div class="bg-white shadow-md rounded-lg p-6">
-        <img src={img.src} alt={img.label} class="mb-4" />
-        <h3 class="text-xl font-semibold">{img.label}</h3>
-      </div>
-    ))}
-  </div>
-
-</section>
+    <!-- Mostrar productos listados-->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      {
+        favList.map((img) => (
+          <div class="bg-white shadow-md rounded-lg p-6">
+            <img src={img.src} alt={img.label} class="mb-4" />
+            <h3 class="text-xl font-semibold">{img.label}</h3>
+          </div>
+        ))
+      }
+    </div>
+  </section>
 
   <!-- Sección de Historia -->
   <section id="historia" class="bg-gray-100 py-16">
     <div class="container mx-auto">
       <h2 class="text-3xl font-bold text-center mb-8">Nuestra Historia</h2>
-      <p class="text-center max-w-2xl mx-auto">Fruna es una empresa con más de 50 años en el mercado...</p>
+      <p class="text-center max-w-2xl mx-auto">
+        Fruna es una empresa con más de 50 años en el mercado...
+      </p>
     </div>
   </section>
 
@@ -50,10 +55,27 @@ const favList = [
     <div class="container mx-auto">
       <h2 class="text-3xl font-bold text-center mb-8">Contacto</h2>
       <form class="max-w-md mx-auto space-y-4">
-        <input type="text" placeholder="Nombre" class="w-full p-4 border rounded-md" required />
-        <input type="email" placeholder="Correo" class="w-full p-4 border rounded-md" required />
-        <textarea placeholder="Mensaje" class="w-full p-4 border rounded-md" rows="4"></textarea>
-        <button type="submit" class="w-full bg-red-500 text-white py-3 rounded-md">Enviar</button>
+        <input
+          type="text"
+          placeholder="Nombre"
+          class="w-full p-4 border rounded-md"
+          required
+        />
+        <input
+          type="email"
+          placeholder="Correo"
+          class="w-full p-4 border rounded-md"
+          required
+        />
+        <textarea
+          placeholder="Mensaje"
+          class="w-full p-4 border rounded-md"
+          rows="4"></textarea>
+        <button
+          type="submit"
+          class="w-full bg-red-500 text-white py-3 rounded-md">Enviar</button
+        >
       </form>
     </div>
   </section>
+</main>

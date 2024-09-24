@@ -1,0 +1,66 @@
+<!-- Image Section with Custom Tailwind Bounce In Animation and Scroll Trigger -->
+<section class="py-10">
+  <div class="container mx-auto">
+    <div class="w-full flex justify-center">
+      <!-- Image Container, starts hidden and gets animated when visible -->
+      <img
+        src="https://www.fruna.cl/wp-content/uploads/2021/02/Mesa-de-trabajo-51.png"
+        alt="Fruna Product"
+        class="w-full max-w-3xl opacity-0 transition-opacity duration-500 transform scale-90"
+        id="animated-image"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- Custom CSS for Bounce In Animation -->
+<style>
+  @keyframes bounceIn {
+    0%, 20%, 40%, 60%, 80%, 100% {
+      animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+    0% {
+      opacity: 0;
+      transform: scale3d(0.3, 0.3, 0.3);
+    }
+    20% {
+      transform: scale3d(1.1, 1.1, 1.1);
+    }
+    40% {
+      transform: scale3d(0.9, 0.9, 0.9);
+    }
+    60% {
+      opacity: 1;
+      transform: scale3d(1.03, 1.03, 1.03);
+    }
+    80% {
+      transform: scale3d(0.97, 0.97, 0.97);
+    }
+    100% {
+      opacity: 1;
+      transform: scale3d(1, 1, 1);
+    }
+  }
+
+  .bounce-in {
+    animation: bounceIn 1s ease forwards;
+  }
+</style>
+
+<!-- JavaScript for Scroll-triggered animation using Intersection Observer -->
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const image = document.getElementById("animated-image");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          image.classList.add("bounce-in", "opacity-100", "scale-100");
+          image.classList.remove("opacity-0", "scale-90");
+        }
+      });
+    });
+
+    observer.observe(image);
+  });
+</script>

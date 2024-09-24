@@ -1,0 +1,84 @@
+---
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-fade';
+import 'swiper/css/autoplay'
+import Ground from './icon/Ground.astro';
+---
+<!-- Main Section with Background and SVG -->
+<section class="relative bg-cover bg-center py-8" style="background-image: url('background1920x1080x.jpg');">
+    <!-- Top SVG Shape -->
+    <div class="absolute inset-x-0 top-0">
+      <Ground/>
+    </div>
+
+    <!-- Text and Button (Left) -->
+    <div class="container mx-auto flex flex-col md:flex-row justify-between items-center relative z-10">
+      <div class="text-[#f4f4f1] md:w-1/2 text-left space-y-6">
+        <h2 class="text-5xl md:text-7xl font-bold leading-tight md:ml-32">Es Temporada<br>de Helados</h2>
+        <a href="" class="inline-block bg-red-600 hover:bg-red-700 text-white py-3 px-6 md:ml-32 rounded-xl text-lg font-semibold animate-bounce">
+          Míralos aquí
+        </a>
+      </div>
+
+      <!-- Right Section: Swiper Carousel -->
+      <div class="md:w-1/2">
+        <!-- Slider main container -->
+        <div class="swiper">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide" data-swiper-autoplay="2000">
+              <img src="helado1.png" alt="helado 1 fruna" class="w-full">
+            </div>
+            <div class="swiper-slide" data-swiper-autoplay="3000">
+              <img src="helado2.png" alt="helado 2 fruna" class="w-full">
+            </div>
+            <div class="swiper-slide" data-swiper-autoplay="4000">
+              <img src="helado3.png" alt="helado 3 fruna" class="w-full">
+            </div>
+          </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <style>
+    .swiper {
+        width: 600px;
+        height: auto;
+      }</style>
+    <script>
+    
+    import Swiper from 'swiper';
+      import { Pagination, Navigation, EffectFade,Autoplay } from 'swiper/modules';
+    
+      document.addEventListener('astro:page-load', () => {
+        const swiper = new Swiper('.swiper', {
+          autoplay: {
+            delay: 2000, // Global autoplay delay (2 seconds)
+          },
+          effect: 'fade', // Efecto de desvanecimiento
+          fadeEffect: {
+            crossFade: true, // Suaviza la transición entre diapositivas
+          },
+          loop: true, // Activa el bucle infinito
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true, // Hace que los puntos de paginación sean clicables
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+          modules: [Pagination, Navigation, EffectFade,Autoplay], // Módulos de Swiper
+        });
+      });
+    </script>
+    
