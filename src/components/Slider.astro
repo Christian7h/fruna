@@ -22,21 +22,19 @@ import Ground from './icon/Ground.astro';
         </a>
       </div>
 
-      <!-- Right Section: Swiper Carousel -->
-      <div class="md:w-1/2">
         <!-- Slider main container -->
-        <div class="swiper">
+        <div class="swiper w-full h-auto min-h-[300px]">
           <!-- Additional required wrapper -->
           <div class="swiper-wrapper">
             <!-- Slides -->
             <div class="swiper-slide" data-swiper-autoplay="2000">
-              <img src="helado1.png" alt="helado 1 fruna" class="w-full">
+              <img src="helado1.png" alt="helado 1 fruna" class="w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[450px] xl:h-[500px] object-contain">
             </div>
             <div class="swiper-slide" data-swiper-autoplay="3000">
-              <img src="helado2.png" alt="helado 2 fruna" class="w-full">
+              <img src="helado2.png" alt="helado 2 fruna" class="w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[450px] xl:h-[500px] object-contain">
             </div>
             <div class="swiper-slide" data-swiper-autoplay="4000">
-              <img src="helado3.png" alt="helado 3 fruna" class="w-full">
+              <img src="helado3.png" alt="helado 3 fruna" class="w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[450px] xl:h-[500px] object-contain">
             </div>
           </div>
             <!-- If we need pagination -->
@@ -46,12 +44,11 @@ import Ground from './icon/Ground.astro';
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
         </div>
-      </div>
     </div>
   </section>
   <style>
     .swiper {
-        width: 600px;
+        width: 100%;
         height: auto;
       }</style>
     <script>
