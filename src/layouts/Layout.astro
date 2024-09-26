@@ -15,26 +15,28 @@ const { title } = Astro.props;
 <html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Fruna, la dulcería de Chile, ofrece una amplia variedad de productos como chocolates, helados y confites de alta calidad." />
-		<meta name="keywords" content="Fruna, dulces, chocolates, confites, helados, dulcería de chile" />
-		<meta name="robots" content="index, follow" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.png" />
 		<meta name="generator" content={Astro.generator} />
-
-		<meta property="og:site_name" content="Fruna">
-		<meta property="og:title" content={title} />
-		<meta property="og:description" content="Fruna ofrece productos deliciosos como chocolates, helados y más." />
-		<meta property="og:image" content="/logo-fruna-la-dulceria-de-chile-2.jpg" />
-		<meta property="og:url" content="https://fruna-teal.vercel.app/" />
-		<meta property="og:type" content="website" />
-
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content={title} />
-		<meta name="twitter:description" content="Fruna, la dulcería más deliciosa de Chile con productos increíbles." />
-		<meta name="twitter:image" content="/logo-fruna-la-dulceria-de-chile-2.jpg" />
-
 		<title>{title}</title>
+
+		<meta name="title" content={title} />
+		<meta name="description" content="Fruna, la dulcería de Chile, ofrece una amplia variedad de productos como chocolates, helados y confites de alta calidad." />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:title" content={title} />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:description" content="Fruna ofrece productos deliciosos como chocolates, helados y más." />
+		<meta property="og:type" content="website" />
+		<meta property="og:image" content="https://fruna-teal.vercel.app/logo-fruna-la-dulceria-de-chile-2.jpg" />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={Astro.url} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content="Fruna, la dulcería más deliciosa de Chile con productos increíbles." />
+		<meta property="twitter:image" content="https://fruna-teal.vercel.app/logo-fruna-la-dulceria-de-chile-2.jpg" />
+
 		<script
             type="module"
             src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
