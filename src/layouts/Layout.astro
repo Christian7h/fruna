@@ -15,10 +15,24 @@ const { title } = Astro.props;
 <html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="description" content="Fruna, la dulcería de Chile, ofrece una amplia variedad de productos como chocolates, helados y confites de alta calidad." />
+		<meta name="keywords" content="Fruna, dulces, chocolates, confites, helados, dulcería de chile" />
+		<meta name="robots" content="index, follow" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.png" />
 		<meta name="generator" content={Astro.generator} />
+		
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content="Fruna ofrece productos deliciosos como chocolates, helados y más." />
+		<meta property="og:image" content="/path-to-your-image.jpg" />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:type" content="website" />
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content="Fruna, la dulcería más deliciosa de Chile con productos increíbles." />
+		<meta name="twitter:image" content="/path-to-your-twitter-image.jpg" />
+		
 		<title>{title}</title>
 		<script
             type="module"
