@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.3",
+    "@astrojs/netlify": "^5.5.3",
     "@astrojs/tailwind": "^5.1.1",
     "astro": "^4.15.9",
     "swiper": "^11.1.14",
