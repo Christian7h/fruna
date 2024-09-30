@@ -29,7 +29,7 @@ import Layout from "../layouts/Layout.astro";
             Escríbenos y en breve los pondremos en contacto contigo
           </h3>
 
-          <form method="POST" data-netlify="true">
+          <!-- <form method="POST" data-netlify="true">
             <div class="mb-4">
               <label
                 for="nombre"
@@ -123,8 +123,28 @@ import Layout from "../layouts/Layout.astro";
             </p>
           </form>
         </div>
-      </section>
-
+      </section> -->
+      <form name="contact" method="POST" netlify>
+        <p>
+          <label>Your Name: <input type="text" name="name" /></label>
+        </p>
+        <p>
+          <label>Your Email: <input type="email" name="email" /></label>
+        </p>
+        <p>
+          <label>Your Role: <select name="role[]" multiple>
+            <option value="leader">Leader</option>
+            <option value="follower">Follower</option>
+          </select></label>
+        </p>
+        <p>
+          <label>Message: <textarea name="message"></textarea></label>
+        </p>
+        <p>
+          <button type="submit">Send</button>
+        </p>
+      </form>
+      
       <section class="py-8">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
           <div>
