@@ -1,12 +1,21 @@
-
+---
+import { Image } from 'astro:assets';
+import myImportedImage from '../../../public/logo-fruna-la-dulceria-de-chile-2.png';
+---
 <nav
-    class="p-5 shadow md:flex md:items-center md:justify-between w-full bg-red-500"
+    class="p-3 shadow md:flex md:items-center md:justify-between w-full bg-red-500"
 >
     <div class="flex justify-between items-center text-white">
-        <a href="/" class="text-3xl cursor-pointer">
-            <img class="h-20 inline" src="/logo-fruna-la-dulceria-de-chile-2.png" alt="Logo Fruna"/>
-             Alpha</a
-        >
+        <a href="/" class="chewy-text text-4xl cursor-pointer">
+            <Image
+            src={myImportedImage}
+            alt="Fruna"
+            width="140"
+            height="80"
+            class={"inline"}
+            />             
+        Alpha
+        </a>
         <span class="text-3xl cursor-pointer mx-2 md:hidden block"
             ><ion-icon name="menu"></ion-icon></span
         >
