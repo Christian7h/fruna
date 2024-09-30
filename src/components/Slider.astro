@@ -5,6 +5,11 @@ import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 import 'swiper/css/autoplay'
 import Ground from './icon/Ground.astro';
+import { Image } from 'astro:assets';
+import helado1 from "../../public/helado1.png"
+import helado2 from "../../public/helado2.png"
+import helado3 from "../../public/helado3.png"
+
 ---
 <!-- Main Section with Background and SVG -->
 <section class="relative bg-cover bg-center py-8" style="background-image: url('background1920x1080x.jpg');">
@@ -28,13 +33,13 @@ import Ground from './icon/Ground.astro';
           <div class="swiper-wrapper">
             <!-- Slides -->
             <div class="swiper-slide" data-swiper-autoplay="2000">
-              <img src="helado1.png" alt="helado 1 fruna" class="w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[450px] xl:h-[500px] object-contain">
+              <Image src={helado1} alt="helado 1 fruna" class={"w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[450px] xl:h-[500px] object-contain"}>
             </div>
             <div class="swiper-slide" data-swiper-autoplay="3000">
-              <img src="helado2.png" alt="helado 2 fruna" class="w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[450px] xl:h-[500px] object-contain">
+              <Image src={helado2} alt="helado 2 fruna" class={"w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[450px] xl:h-[500px] object-contain"}>
             </div>
             <div class="swiper-slide" data-swiper-autoplay="4000">
-              <img src="helado3.png" alt="helado 3 fruna" class="w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[450px] xl:h-[500px] object-contain">
+              <Image src={helado3} alt="helado 3 fruna" class={"w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[450px] xl:h-[500px] object-contain"}>
             </div>
           </div>
             <!-- If we need pagination -->

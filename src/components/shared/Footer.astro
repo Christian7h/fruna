@@ -1,10 +1,14 @@
+---
+import { Image } from "astro:assets";
+import logoFruna from "../../../public/logo-fruna-la-dulceria-de-chile-2.png"
+---
 <div class="w-full border-t border-gray-300">
         
 </div>
 <footer class="text-gray-600 body-font">
   <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
     <a href="https://fruna-teal.vercel.app/" class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-      <img src="/logo-fruna-la-dulceria-de-chile-2.png" alt="Fruna Logo" class="h-24"/>
+      <Image src={logoFruna} width="180" alt="Fruna Logo" class={"h-24"}/>
     </a>
     <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">&copy; 2024 Fruna. Todos los derechos reservados.
     </p>

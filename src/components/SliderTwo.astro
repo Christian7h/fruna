@@ -4,6 +4,11 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import Ground from "./icon/Ground.astro";
+import { Image } from 'astro:assets';
+import balde1 from "../../public/balde1.png"
+import balde2 from "../../public/balde2.png"
+import balde3 from "../../public/balde3.png"
+import balde4 from "../../public/balde4.png"
 ---
 
 <!-- Main Section with Background and SVG -->
@@ -24,16 +29,16 @@ import Ground from "./icon/Ground.astro";
         <div class="swiper-wrapper">
           <!-- Slides -->
           <div class="swiper-slide" data-swiper-autoplay="2000">
-            <img src="balde1.png" alt="balde 1 fruna" class="w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[450px] xl:h-[500px] object-contain">
+            <Image src={balde1} alt="balde 1 fruna" class={"w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[450px] xl:h-[500px] object-contain"}>
           </div>
           <div class="swiper-slide" data-swiper-autoplay="3000">
-            <img src="balde2.png" alt="balde 2 fruna" class="w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[450px] xl:h-[500px] object-contain">
+            <Image src={balde2} alt="balde 2 fruna" class={"w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[450px] xl:h-[500px] object-contain"}>
           </div>
           <div class="swiper-slide" data-swiper-autoplay="4000">
-            <img src="balde3.png" alt="balde 3 fruna" class="w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[450px] xl:h-[500px] object-contain">
+            <Image src={balde3} alt="balde 3 fruna" class={"w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[450px] xl:h-[500px] object-contain"}>
           </div>
           <div class="swiper-slide" data-swiper-autoplay="4000">
-            <img src="balde4.png" alt="balde 4 fruna" class="w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[450px] xl:h-[500px] object-contain">
+            <Image src={balde4} alt="balde 4 fruna" class={"w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[450px] xl:h-[500px] object-contain"}>
           </div>
         </div>
           <!-- If we need pagination -->
