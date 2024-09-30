@@ -1,24 +1,44 @@
 ---
+import { Image } from 'astro:assets';
+import fav1 from '../../public/fav1.png';
+import fav2 from '../../public/fav2.png';
+import fav3 from '../../public/fav3.png';
+import fav4 from '../../public/fav4.png';
+import fav5 from '../../public/fav5.png';
+import fav6 from '../../public/fav6.png';
+import fav7 from '../../public/fav7.png';
+import fav8 from '../../public/fav8.png';
+import fav9 from '../../public/fav9.png';
+import fav10 from '../../public/fav10.png';
+import fav11 from '../../public/fav11.png';
+import fav12 from '../../public/fav12.png';
+import fav13 from '../../public/fav13.png';
+import fav14 from '../../public/fav14.png';
+import fav15 from '../../public/fav15.png';
+import fav16 from '../../public/fav16.png';
+import fav17 from '../../public/fav17.png';
+import fav18 from '../../public/fav18.png';
+
 // src/components/Favoritos.astro
 const favList = [
-  { src: "https://fruna.netlify.app/fav1.png", label: "Producto 1" },
-  { src: "https://fruna.netlify.app/fav2.png", label: "Producto 2" },
-  { src: "https://fruna.netlify.app/fav3.png", label: "Producto 3" },
-  { src: "https://fruna.netlify.app/fav4.png", label: "Producto 4" },
-  { src: "https://fruna.netlify.app/fav5.png", label: "Producto 5" },
-  { src: "https://fruna.netlify.app/fav6.png", label: "Producto 6" },
-  { src: "https://fruna.netlify.app/fav7.png", label: "Producto 7" },
-  { src: "https://fruna.netlify.app/fav8.png", label: "Producto 8" },
-  { src: "https://fruna.netlify.app/fav9.png", label: "Producto 9" },
-  { src: "https://fruna.netlify.app/fav10.png", label: "Producto 10" },
-  { src: "https://fruna.netlify.app/fav11.png", label: "Producto 11" },
-  { src: "https://fruna.netlify.app/fav12.png", label: "Producto 12" },
-  { src: "https://fruna.netlify.app/fav13.png", label: "Producto 13" },
-  { src: "https://fruna.netlify.app/fav14.png", label: "Producto 14" },
-  { src: "https://fruna.netlify.app/fav15.png", label: "Producto 15" },
-  { src: "https://fruna.netlify.app/fav16.png", label: "Producto 16" },
-  { src: "https://fruna.netlify.app/fav17.png", label: "Producto 17" },
-  { src: "https://fruna.netlify.app/fav18.png", label: "Producto 18" },
+  { src: fav1, label: "Producto 1" },
+  { src: fav2, label: "Producto 2" },
+  { src: fav3, label: "Producto 3" },
+  { src: fav4, label: "Producto 4" },
+  { src: fav5, label: "Producto 5" },
+  { src: fav6, label: "Producto 6" },
+  { src: fav7, label: "Producto 7" },
+  { src: fav8, label: "Producto 8" },
+  { src: fav9, label: "Producto 9" },
+  { src: fav10, label: "Producto 10" },
+  { src: fav11, label: "Producto 11" },
+  { src: fav12, label: "Producto 12" },
+  { src: fav13, label: "Producto 13" },
+  { src: fav14, label: "Producto 14" },
+  { src: fav15, label: "Producto 15" },
+  { src: fav16, label: "Producto 16" },
+  { src: fav17, label: "Producto 17" },
+  { src: fav18, label: "Producto 18" },
 ];
 ---
 
@@ -35,7 +55,7 @@ const favList = [
       {
         favList.map((img) => (
           <div class="bg-white shadow-md rounded-lg p-6 buzz-out-on-hover">
-            <img src={img.src} alt={img.label} class="mb-4" />
+            <Image src={img.src} alt={img.label} class={"mb-4"} />
             <h3 class="text-xl font-semibold">{img.label}</h3>
           </div>
         ))
