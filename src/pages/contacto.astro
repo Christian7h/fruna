@@ -124,7 +124,7 @@ import Layout from "../layouts/Layout.astro";
           </form>
         </div>
       </section> -->
-      <form name="contact" method="POST" netlify>
+      <form name="contact" method="POST" data-netlify="true">
         <p>
           <label>Your Name: <input type="text" name="name" /></label>
         </p>
@@ -144,6 +144,7 @@ import Layout from "../layouts/Layout.astro";
           <button type="submit">Send</button>
         </p>
       </form>
+      
       
       <section class="py-8">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
