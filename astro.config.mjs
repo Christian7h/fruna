@@ -7,5 +7,5 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   site: "https://fruna-teal.vercel.app",
   integrations: [tailwind()],
-  output:"static"
+  output:"hybrid"
 });

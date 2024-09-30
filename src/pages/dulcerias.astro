@@ -1,13 +1,47 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-// Lista de ubicaciones de las dulcerías
+// Lista de ubicaciones de las dulcerías organizadas por secciones
 const tiendasList = [
-  { direccion: "SALV. SANFUENTES 2902", telefono: "232240707" },
-  { direccion: "SAN ALFONSO 84", telefono: "232240708" },
-  { direccion: "FRANKLIN 801", telefono: "232240714" },
-  { direccion: "SAN PABLO 3069", telefono: "232240714" },
-  { direccion: "SAN FRANCISCO 2057", telefono: "232240714" },
+  {
+    id: 1,
+    name: "Santiago Centro",
+    tiendas: [
+      { direccion: "SALV. SANFUENTES 2902", telefono: "232240707" },
+      { direccion: "SAN ALFONSO 84", telefono: "232240708" },
+      { direccion: "FRANKLIN 801", telefono: "232240714" },
+      { direccion: "SAN PABLO 3069", telefono: "232240714" },
+      { direccion: "SAN FRANCISCO 2057", telefono: "232240714" },
+    ],
+  },
+  {
+    id: 2,
+    name: "Recoleta",
+    tiendas: [
+      { direccion: "AV. LA PAZ 195 - 199", telefono: "232240711" },
+      { direccion: "AV. LA PAZ 177", telefono: "232240715" },
+      { direccion: "A. LOPEZ DE BELLO 720", telefono: "232240716" },
+      { direccion: "A. LOPEZ DE BELLO 622", telefono: "232240718" },
+      { direccion: "SALAS 294-298", telefono: "232240737" },
+    ],
+  },
+  {
+    id: 3,
+    name: "San ramón",
+    tiendas: [
+      { direccion: "AV. SANTA ROSA 7949 - 7953", telefono: "232240701" },
+      { direccion: "AV. SANTA ROSA 8699", telefono: "232240702" },
+    ],
+  },
+  {
+    id: 5,
+    name: "Pedro aguirre cerda",
+    tiendas: [
+      { direccion: "AV. CERRILLOS 4030 L-10", telefono: "232240713" },
+      { direccion: "AV. CERRILLOS 4030 L-4", telefono: "232240712" },
+      { direccion: "AV. CERRILLOS 4030 L-5", telefono: "232240752" },
+    ],
+  },
 ];
 ---
 
@@ -16,38 +50,44 @@ const tiendasList = [
         <h2 class="chewy-text text-6xl font-bold text-center mb-4">Dulcerías</h2>
         <p class="text-lg text-center mb-8">Visítenos, estaremos felices de atenderle</p>
 
-        <section class="my-8 text-center">
-            <h2 class="chewy-text text-gray-500 text-4xl font-semibold mb-4 text-center">Santiago Centro</h2>
-            
-            <!-- Contenedor para las primeras tres columnas -->
-            <div class="flex flex-wrap justify-center gap-6">
-                {tiendasList.slice(0, 3).map((tienda) => (
-                    <div class="p-6 bg-gray-100 rounded-lg shadow-md max-w-xs w-full md:w-full">
-                        <h3 class="text-xl font-bold mb-2">{tienda.direccion}</h3>
-                        <h4 class="text-lg font-semibold mb-1">Teléfono</h4>
-                        <p class="text-base">{tienda.telefono}</p>
-                    </div>
-                ))}
-            </div>
+        <!-- Obtener solo las tiendas de Santiago Centro -->
+        {tiendasList
+          .filter((ubicacion) => ubicacion.id = 1) // Filtrar solo por id: 1 (Santiago Centro)
+          .map((ubicacion) => (
+            <section class="my-8 text-center">
+                <h2 class="chewy-text text-gray-500 text-4xl font-semibold mb-4 text-center">
+                  {ubicacion.name}
+                </h2>
 
-            <!-- Contenedor para las últimas dos columnas centradas -->
-            <div class="flex justify-center gap-6 mt-6">
-                {/* Columna vacía a la izquierda */}
-                <div class="hidden lg:block lg:flex-1"></div>
+                {/* <!-- Contenedor para las primeras tres columnas --> */}
+                <div class="flex flex-wrap justify-center gap-6">
+                    {ubicacion.tiendas.slice(0, 3).map((tienda) => (
+                        <div class="p-6 bg-gray-100 rounded-lg shadow-md max-w-xs w-full md:w-full">
+                            <h3 class="text-xl font-bold mb-2">{tienda.direccion}</h3>
+                            <h4 class="text-lg font-semibold mb-1">Teléfono</h4>
+                            <p class="text-base">{tienda.telefono}</p>
+                        </div>
+                    ))}
+                </div>
 
-                {/* Últimas dos columnas */}
-                {tiendasList.slice(3).map((tienda) => (
-                    <div class="p-6 bg-gray-100 rounded-lg shadow-md max-w-xs w-full md:w-full">
-                        <h3 class="text-xl font-bold mb-2">{tienda.direccion}</h3>
-                        <h4 class="text-lg font-semibold mb-1">Teléfono</h4>
-                        <p class="text-base">{tienda.telefono}</p>
-                    </div>
-                ))}
+                {/* <!-- Contenedor para las últimas dos columnas centradas --> */}
+                <div class="flex justify-center gap-6 mt-6 md:flex-row flex-col">
+                    {/* Columna vacía a la izquierda */}
+                    <div class="hidden lg:block lg:flex-1"></div>
 
-                {/* Columna vacía a la derecha */}
-                <div class="hidden lg:block lg:flex-1"></div>
-            </div>
-            
-        </section>
+                    {/* Últimas dos columnas */}
+                    {ubicacion.tiendas.slice(3).map((tienda) => (
+                        <div class="p-6 bg-gray-100 rounded-lg shadow-md max-w-xs w-full md:w-full">
+                            <h3 class="text-xl font-bold mb-2">{tienda.direccion}</h3>
+                            <h4 class="text-lg font-semibold mb-1">Teléfono</h4>
+                            <p class="text-base">{tienda.telefono}</p>
+                        </div>
+                    ))}
+
+                    {/* Columna vacía a la derecha */}
+                    <div class="hidden lg:block lg:flex-1"></div>
+                </div>
+            </section>
+        ))}
     </section>
 </Layout>
