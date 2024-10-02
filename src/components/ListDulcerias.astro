@@ -1,47 +1,53 @@
 ---
 import tiendasList from '../utils/dulcerias';
 ---
+
 <section class="container mx-auto py-8">
     <h2 class="chewy-text text-6xl font-bold text-center mb-4">Dulcerías</h2>
     <p class="text-lg text-center mb-8">Visítenos, estaremos felices de atenderle</p>
+    
+    <div class="text-center">
+        <input
+            type="text"
+            id="search-input"
+            placeholder="Ingresa ubicación (Maipú)"
+            class="p-2 border border-gray-300 rounded"
+            oninput="filterTiendas()"
+        />
+    </div>
 
-    <!-- Obtener solo las tiendas de Santiago Centro -->
-    {tiendasList
-      .filter((ubicacion) => ubicacion.id = 1) // Filtrar solo por id: 1 (Santiago Centro)
-      .map((ubicacion) => (
-        <section class="my-8 text-center mt-32">
-            <h2 class="chewy-text text-gray-500 text-4xl font-semibold mb-4 text-center">
-              {ubicacion.name}
-            </h2>
+    <section id="tiendas-container">
+        {tiendasList
+          .filter((ubicacion) => ubicacion.id === 1)
+          .map((ubicacion) => (
+              <div class="my-8 text-center" data-ubicacion={ubicacion.name}>
+                  <h2 class="chewy-text text-gray-500 text-4xl font-semibold mb-4 text-center">
+                    {ubicacion.name}
+                  </h2>
 
-            {/* <!-- Contenedor para las primeras tres columnas --> */}
-            <div class="flex flex-wrap justify-center gap-6">
-                {ubicacion.tiendas.slice(0, 3).map((tienda) => (
-                    <div class="p-6 bg-gray-100 rounded-lg shadow-md max-w-xs w-full md:w-full">
-                        <h3 class="text-xl font-bold mb-2">{tienda.direccion}</h3>
-                        <h4 class="text-lg font-semibold mb-1">Teléfono</h4>
-                        <p class="text-base">{tienda.telefono}</p>
-                    </div>
-                ))}
-            </div>
-
-            {/* <!-- Contenedor para las últimas dos columnas centradas --> */}
-            <div class="flex justify-center gap-6 mt-6 md:flex-row flex-col">
-                {/* Columna vacía a la izquierda */}
-                <div class="hidden lg:block lg:flex-1"></div>
-
-                {/* Últimas dos columnas */}
-                {ubicacion.tiendas.slice(3).map((tienda) => (
-                    <div class="p-6 bg-gray-100 rounded-lg shadow-md max-w-xs w-full md:w-full">
-                        <h3 class="text-xl font-bold mb-2">{tienda.direccion}</h3>
-                        <h4 class="text-lg font-semibold mb-1">Teléfono</h4>
-                        <p class="text-base">{tienda.telefono}</p>
-                    </div>
-                ))}
-
-                {/* Columna vacía a la derecha */}
-                <div class="hidden lg:block lg:flex-1"></div>
-            </div>
-        </section>
-    ))}
+                  <div class="flex flex-wrap justify-center gap-6">
+                      {ubicacion.tiendas.map((tienda) => (
+                          <div class="p-6 bg-gray-100 rounded-lg shadow-md max-w-xs w-full md:w-full" data-direccion={tienda.direccion}>
+                              <h3 class="text-xl font-bold mb-2">{tienda.direccion}</h3>
+                              <h4 class="text-lg font-semibold mb-1">Teléfono</h4>
+                              <p class="text-base">{tienda.telefono}</p>
+                          </div>
+                      ))}
+                  </div>
+              </div>
+          ))}
+    </section>
 </section>
+
+<script is:inline>
+    function filterTiendas() {
+        const input = document.getElementById('search-input').value.toLowerCase();
+        const tiendasContainer = document.getElementById('tiendas-container');
+        const tiendas = tiendasContainer.querySelectorAll('[data-ubicacion]');
+
+        tiendas.forEach(tienda => {
+            const direccion = tienda.getAttribute('data-ubicacion').toLowerCase();
+            tienda.style.display = direccion.includes(input) ? 'block' : 'none';
+        });
+    }
+</script>
